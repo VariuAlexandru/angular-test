@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {PopupService} from "./services/popup.service";
+import {MatDialog} from "@angular/material/dialog";
+import {PopupComponent} from "./popup/popup.component";
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-test';
+  constructor(private popupService: PopupService) {
+  }
+
+ public  openPopup(type: string): void {
+
+    this.popupService.openPopup(type)
+  }
 }

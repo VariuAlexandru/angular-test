@@ -1,0 +1,14 @@
+<div class="container">
+
+  <h3 *ngIf="this.config.type !== 'component'">{{this.config.title}}</h3>
+
+  <app-text *ngIf="this.config.type === 'text'" [message]=this.config.message></app-text>
+  <app-comp  *ngIf="this.config.type === 'component'" [component]="this.config.component" ></app-comp>
+  <app-html  *ngIf="this.config.type === 'html'" [html]="this.config.content"></app-html>
+
+
+  <div *ngIf="this.config.type !== 'component'" class="buttons">
+    <button mat-button [color]="this.config.variant" (click)="onActionEvent(false)">Cancel</button>
+    <button mat-button [color]="this.config.variant" (click)="onActionEvent(true)">Ok</button>
+  </div>
+</div>
